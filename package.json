@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "npm start"
+    "start": "node ./bin/www"
   },
   "dependencies": {
+    "angular-ui-router": "^0.4.2",
     "angular-url-encode": "^1.0.0",
     "body-parser": "~1.16.0",
     "cookie-parser": "~1.4.3",
