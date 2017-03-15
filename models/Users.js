@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
-var authSecret = AUTH_SECRET
+var authSecret = process.env.AUTH_SECRET
 
 var UserSchema = new mongoose.Schema({
   username: {type: String, lowercase: true, unique: true},
