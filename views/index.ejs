@@ -1,0 +1,29 @@
+<html>
+
+<head>
+  <title> Angular App - Homemade Pollster </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+    <script src="/javascripts/angularApp.js"></script>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body ng-app="homemadePolls">
+<div id="main" class="col-md-6 col-md-offset-3">
+  <nav class="navbar navbar-default pull-right" ng-controller="NavCtrl">
+    <ul class="nav navbar-nav" >
+      <li ng-show="isLoggedIn()"><a>{{ currentUser() }}</a></li>
+      <li ng-show="isLoggedIn()"><a href="/#/home" ng-click="logOut()">Log Out</a></li>
+      <li ng-hide="isLoggedIn()"><a href="/#/login">Log In</a></li>
+      <li ng-hide="isLoggedIn()"><a href="/#/register">Register</a></li>
+      <li><a href="/#/home">Home</a></li>
+      <li ng-show="isLoggedIn()"><a href="/#/editPoll/{{user}}">My Polls</a></li>
+    </ul>
+  </nav>
+
+  <ui-view></ui-view>
+
+</body>
+
+</html>
