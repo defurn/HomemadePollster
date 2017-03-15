@@ -16,8 +16,9 @@ var users = require('./routes/users');
 
 var app = express();
 
-
-mongoose.connect('mongodb://localhost/polls');
+var mongoHost = process.env.MONGOLAB_URI
+// mongoose.connect('mongodb://localhost/polls');
+mongoose.connect(mongoHost);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
