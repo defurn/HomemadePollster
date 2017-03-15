@@ -15,8 +15,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-
-var mongoHost = process.env.MONGOLAB_URI
+var mongoHost = MONGOLAB_URI
 // mongoose.connect('mongodb://localhost/polls');
 mongoose.connect(mongoHost);
 
