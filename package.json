@@ -1,9 +1,9 @@
 {
-  "name": "flapper-news",
-  "version": "0.0.0",
+  "name": "homemade-pollster",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "npm start"
   },
   "dependencies": {
     "angular-url-encode": "^1.0.0",
