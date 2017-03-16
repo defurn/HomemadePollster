@@ -3,7 +3,7 @@
     <h2>{{poll[0].title}}</h2>
   </div>
 
-  <div ng-repeat="contestant in poll[0].contestants">
+  <div ng-repeat="contestant in poll[0].contestants | orderBy : '-votes.length'">
     <button class="btn" ng-click="upvote(contestant._id)">
       <h4 class="contestant-btn">{{contestant.name}}</h4>
     </button>
