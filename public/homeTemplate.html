@@ -7,7 +7,7 @@
     </div>
     <div ng-repeat="poll in polls" class="currentPolls"><!--change order by-->
       <span style="font-size:20px; margin-left:10px;">
-        <a href="/#/poll/{{poll._id}}">{{poll.title}}</a>
+        <a href="/#/poll/{{poll._id}}">{{poll.title}}</a> --by {{poll.user}}
       </span>
     </div>
   </div>
