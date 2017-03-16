@@ -1,13 +1,18 @@
   <div class="col-md-6 col-md-offset-3 mainPage">
 
     <div class="page-header">
-      <h1>Homemade Pollster</h1>
       <h3>Current Polls</h3>
-      <span ng-show="isLoggedIn()"><a href ="/#/editPoll/{{user}}"><button class="btn">Edit Polls</button></a></span>
     </div>
-    <div ng-repeat="poll in polls" class="currentPolls"><!--change order by-->
-      <span style="font-size:20px; margin-left:10px;">
-        <a href="/#/poll/{{poll._id}}">{{poll.title}}</a> <span style="font-size:13px; margin-left :10px;">--by {{poll.user}}</span>
+      <span ng-show="isLoggedIn()">
+        <a href ="/#/editPoll/{{user}}">
+          <button class="btn">Edit Polls</button>
+        </a>
+      </span>
+
+    <div ng-repeat="poll in polls" class="currentPolls">
+      <span>
+        <a href="/#/poll/{{poll._id}}">{{poll.title}}</a>
+        <small>--by {{poll.user}}</small>
       </span>
     </div>
   </div>

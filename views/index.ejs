@@ -13,7 +13,8 @@
 <body ng-app="homemadePolls">
 <div class="">
   <nav class="navbar navbar-primary" ng-controller="NavCtrl">
-    <ul class="nav nav-pills pull-right col-md-6 col-md-offset-3" >
+    <h2 class="navbar-text pull-left">HomeMade Pollster</h2>
+    <ul class="nav nav-pills pull-right" >
       <li ng-show="isLoggedIn()"><a>{{ currentUser() }}</a></li>
       <li ng-show="isLoggedIn()"><a href="/#/home" ng-click="logOut()">Log Out</a></li>
       <li ng-hide="isLoggedIn()"><a href="/#/login">Log In</a></li>
@@ -22,8 +23,11 @@
       <li ng-show="isLoggedIn()"><a href="/#/editPoll/{{user}}">My Polls</a></li>
     </ul>
   </nav>
+</div>
 
+<div class="appContainer">
   <ui-view class="main"></ui-view>
+</div>
 
 </body>
 
