@@ -33,6 +33,15 @@ app.factory('polls', ['$http', 'auth', function($http, auth){
         o.polls.push(data);
       });
     };
+    o.deletePoll = function(pollId){
+      return $http.get('/deletepoll/' + pollId).success(function(data){
+        // var removedPoll = o.polls.filter(function(x){
+        //   //console.log(x)
+        //   return x._id == pollId;
+        // });
+        })
+
+    }
     o.upvote = function(contestant){
       return $http.put('/contestant/' + contestant + '/upvote').success(function(data){
 
@@ -190,7 +199,7 @@ app.controller('MainCtrl', [
     $scope.user = auth.currentUser();
     //return only the user's polls for the editing page
     $scope.polls = polls.myPolls;
-    //this seems like a ridiculous work-around in order to get numbers instead
+    //a work-around in order to get numbers instead
     //of strings from the angular select element, could be done easier with a
     //text input but I wanted to figure this way out
     //have to use ngoption instead of a regular select I think in order to use
@@ -263,6 +272,14 @@ app.controller('MainCtrl', [
           $scope.newPoll.contestants = '';
         });
     };
+    $scope.deletePoll = function(pollId){
+      polls.deletePoll(pollId)
+        .success(function(removed){
+          $scope.polls = $scope.polls.filter(function(x){
+            return x._id != pollId;
+          })
+        });
+    }
     //only show form if +Poll clicked
     $scope.isVisible = false;
     $scope.showHide = function(){

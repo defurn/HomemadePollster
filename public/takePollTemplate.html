@@ -5,7 +5,7 @@
   </div>
 
   <div ng-repeat="contestant in poll[0].contestants">
-    <h3 ng-click="upvote(contestant._id)">{{contestant.name}}</h3>
+    <button class="btn" ng-click="upvote(contestant._id)">{{contestant.name}}</button>
     <p>{{ contestant.votes}}</p></div>
 
 
