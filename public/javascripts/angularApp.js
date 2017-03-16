@@ -258,7 +258,7 @@ app.controller('MainCtrl', [
         $scope.contestants.push({
           index:j,
           name: $scope.newPoll.contestants[j],
-          votes: '[]'
+          votes: ''
         });
       }
       $scope.newPoll.contestants = $scope.contestants;
