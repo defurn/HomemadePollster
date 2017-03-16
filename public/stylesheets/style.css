@@ -1,8 +1,15 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.navbar{
+  background-color: #282828;
+  padding:10px;
+}
+
+.mainPage{
 }

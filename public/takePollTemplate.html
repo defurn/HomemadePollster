@@ -6,7 +6,7 @@
 
   <div ng-repeat="contestant in poll[0].contestants">
     <button class="btn" ng-click="upvote(contestant._id)">{{contestant.name}}</button>
-    <p>{{ contestant.votes}}</p></div>
+    <p>{{contestant.votes.length/2}} - {{ contestant.votes }}</p></div>
 
 
 

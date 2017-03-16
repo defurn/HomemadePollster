@@ -15,42 +15,41 @@
     </p>
     <span>
       <a href="/#/poll/{{poll._id}}">
-        <button class="btn btn-primary">Take Poll</button>
-      </a>
+        <button class="btn btn-primary">Take Poll</button></a>
       <button class="btn btn-danger" ng-click="deletePoll(poll._id)">Delete</button>
     </span>
     <span ng-repeat="names in poll.contestants">
-      <p style="margin-left:10px; margin-top:15px;">{{names.name}} - {{names.votes}}</p>
+      <p style="margin-left:10px; margin-top:15px;">{{names.votes.length/2}} - {{names.name}} - {{names.votes}}</p>
     </span>
   <hr>
   </div>
 
   <form ng-submit="addPoll()"
-  style="margin-top:30px;"
-  ng-show="isVisible">
+    style="margin-top:30px;"
+    ng-show="isVisible">
     <h4>New Poll</h4>
     <div class="form-group">
       <input type="text"
-      class="form-control"
-      placeholder="Poll Title"
-      ng-model="newPoll.title"
-      autofocus></input>
+        class="form-control"
+        placeholder="Poll Title"
+        ng-model="newPoll.title"
+        autofocus></input>
     </div>
     <div class="form-group">
       <label for="contestants">Number of Contestants</label>
       <select class="form-control"
-      name="contestants"
-      ng-model="newPoll.numberContestants"
-      ng-options="number as number.number for number in numberChoices">
+        name="contestants"
+        ng-model="newPoll.numberContestants"
+        ng-options="number as number.number for number in numberChoices">
       </select>
     </div>
     <div class="form-group">
-    <ol class="contestantNames">
-      <li ng-repeat="i in makeArray(newPoll.numberContestants)">
-        <input type="text"
-        ng-model="newPoll.contestants[$index]"></input>{{contestants}}
-      </li>
-    </ol>
-  </div>
+      <ol class="contestantNames">
+        <li ng-repeat="i in makeArray(newPoll.numberContestants)">
+          <input type="text"
+            ng-model="newPoll.contestants[$index]"></input>{{contestants}}
+        </li>
+      </ol>
+    </div>
     <button type="submit" class="btn btn-primary" ng-click="showHide()">Add Poll</button>
   </form>
