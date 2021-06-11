@@ -21,7 +21,7 @@ const mongoUser = process.env.MONGO_USR
 const mongoPassword = process.env.MONGO_PW
 const MONGO_CONNECTION_STRING = `mongodb+srv://${mongoUser}:${mongoPassword}@${mongoHost}`
 // mongoose.connect('mongodb://localhost/polls');
-mongoose.connect(mongoHost,  {useNewUrlParser: true})
+mongoose.connect(MONGO_CONNECTION_STRING,  {useNewUrlParser: true})
 console.log("DB connection OK");
 mongoose.connection.on( 'error', err => {
    throw err; 
