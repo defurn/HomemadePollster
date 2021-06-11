@@ -1,11 +1,12 @@
 {
-  "name": "flapper-news",
-  "version": "0.0.0",
+  "name": "homemade-pollster",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www"
   },
   "dependencies": {
+    "angular-ui-router": "^0.4.2",
     "angular-url-encode": "^1.0.0",
     "body-parser": "~1.16.0",
     "cookie-parser": "~1.4.3",

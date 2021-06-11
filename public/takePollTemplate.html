@@ -1,12 +1,13 @@
 <div class="col-md-6 col-md-offset-3 mainPage">
   <div class="page-header">
-    <h1>Homemade Pollster</h1>
     <h2>{{poll[0].title}}</h2>
   </div>
 
-  <div ng-repeat="contestant in poll[0].contestants">
-    <h3 ng-click="upvote(contestant._id)">{{contestant.name}}</h3>
-    <p>{{ contestant.votes}}</p></div>
+  <div ng-repeat="contestant in poll[0].contestants | orderBy : '-votes.length'">
+    <button class="btn" ng-click="upvote(contestant._id)">
+      <h4 class="contestant-btn">{{contestant.name}}</h4>
+    </button>
+    <h3 class="votes-display">{{contestant.votes.length/2}} - {{ contestant.votes }}</h3></div>
 
 
 

@@ -33,7 +33,7 @@ router.param('user', function(req, res, next, user) {
 });
 
 router.param('poll', function(req, res, next, poll) {
-  var query = Poll.find({'title': poll});
+  var query = Poll.find({_id: poll});
   query.exec(function(err, data){
     if (err) { return next(err); }
     if (!data) { return next(new Error("can't find " +poll)) }
@@ -62,6 +62,13 @@ router.get('/editPoll/:user', function(req, res, next){
 
 router.get('/poll/:poll', function(req, res, next){
   res.json(req.poll);
+})
+
+router.get('/deletepoll/:poll', function(req, res, next){
+  Poll.remove({_id: req.poll[0]._id}, function(err, removed){
+    if (err) {return next(err)}
+    res.json(removed)
+  })
 })
 
 router.put('/contestant/:contestant/upvote', function(req, res, next){

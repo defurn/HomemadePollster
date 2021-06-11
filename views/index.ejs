@@ -3,16 +3,18 @@
 <head>
   <title> Angular App - Homemade Pollster </title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
     <script src="/javascripts/angularApp.js"></script>
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/style.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
 <body ng-app="homemadePolls">
-<div id="main" class="col-md-6 col-md-offset-3">
-  <nav class="navbar navbar-default pull-right" ng-controller="NavCtrl">
-    <ul class="nav navbar-nav" >
+<div class="">
+  <nav class="navbar navbar-primary" ng-controller="NavCtrl">
+    <h2 class="navbar-text pull-left">HomeMade Pollster</h2>
+    <ul class="nav nav-pills pull-right" >
       <li ng-show="isLoggedIn()"><a>{{ currentUser() }}</a></li>
       <li ng-show="isLoggedIn()"><a href="/#/home" ng-click="logOut()">Log Out</a></li>
       <li ng-hide="isLoggedIn()"><a href="/#/login">Log In</a></li>
@@ -21,8 +23,11 @@
       <li ng-show="isLoggedIn()"><a href="/#/editPoll/{{user}}">My Polls</a></li>
     </ul>
   </nav>
+</div>
 
-  <ui-view></ui-view>
+<div class="appContainer">
+  <ui-view class="main"></ui-view>
+</div>
 
 </body>
 

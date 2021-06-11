@@ -1,46 +1,54 @@
 <div class="col-md-6 col-md-offset-3 mainPage">
   <div class="page-header">
-    <h1>Homemade Pollster</h1>
     <h2>Create/Edit Polls</h2>
+    <button class="btn" ng-click="showHide()">+ Poll</button>
   </div>
 
   <div ng-show="error" class="alert alert-danger row">
     <span>{{ error.message }}</span>
   </div>
 
-  <div ng-repeat="poll in polls" class="currentPolls">
-    <span style="font-size:20px; margin-left:10px;">
-      <a href="/#/poll/{{poll.title}}">{{poll.title}}</a> by {{poll.user}}, {{poll.numberContestants}} contestants
+  <div ng-repeat="poll in polls" class="currentPolls" style="padding:5px; margin:5px;">
+    <p style="font-size:20px;">
+      {{poll.title}}
+    </p>
+    <span>
+      <a href="/#/poll/{{poll._id}}">
+        <button class="btn btn-primary">Take Poll</button></a>
+      <button class="btn btn-danger" ng-click="deletePoll(poll._id)">Delete</button>
     </span>
-    <span ng-repeat="names in poll.contestants"><p>{{names.name}} - {{names.votes}}</p>
+    <span ng-repeat="names in poll.contestants">
+      <p style="margin-left:10px; margin-top:15px;">{{names.votes.length/2}} - {{names.name}} - {{names.votes}}</p>
+    </span>
+  <hr>
   </div>
+
   <form ng-submit="addPoll()"
-  style="margin-top:30px;"
-  ng-show="isVisible">
+    style="margin-top:30px;"
+    ng-show="isVisible">
     <h4>New Poll</h4>
     <div class="form-group">
       <input type="text"
-      class="form-control"
-      placeholder="Poll Title"
-      ng-model="newPoll.title"></input>
+        class="form-control"
+        placeholder="Poll Title"
+        ng-model="newPoll.title"
+        autofocus></input>
     </div>
     <div class="form-group">
       <label for="contestants">Number of Contestants</label>
       <select class="form-control"
-      name="contestants"
-      ng-model="newPoll.numberContestants"
-      ng-options="number as number.number for number in numberChoices">
+        name="contestants"
+        ng-model="newPoll.numberContestants"
+        ng-options="number as number.number for number in numberChoices">
       </select>
     </div>
     <div class="form-group">
-    <ol class="contestantNames">
-      <li ng-repeat="i in makeArray(newPoll.numberContestants)">
-        <input type="text"
-        ng-model="newPoll.contestants[$index]"></input>{{contestants}}
-      </li>
-    </ol>
-  </div>
-    <button type="submit" class="btn btn-primary" ng-click="showHide()">add poll</button>
+      <ol class="contestantNames">
+        <li ng-repeat="i in makeArray(newPoll.numberContestants)">
+          <input type="text"
+            ng-model="newPoll.contestants[$index]"></input>{{contestants}}
+        </li>
+      </ol>
+    </div>
+    <button type="submit" class="btn btn-primary" ng-click="showHide()">Add Poll</button>
   </form>
-
-  <span><button class="btn" ng-click="showHide()" ng-hide="isVisible">+Poll</button></span>

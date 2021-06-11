@@ -1,8 +1,42 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+form{
+  margin:auto;
+  width:50%;
+}
+
+.navbar{
+  background-color: #282828;
+  padding:10px;
+}
+
+.navbar-text{
+  color: #666666;
+}
+
+.nav{
+  padding-top:10px;
+  font-size:1.2em;
+}
+
+.currentPolls{
+  font-size:20px;
+  margin:auto;
+
+}
+
+.contestant-btn{
+  /*padding:10px;*/
+}
+
+.votes-display{
+  padding-top:5px;
+  padding-left:5px;
+  padding-bottom:20px;
 }
