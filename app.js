@@ -15,11 +15,16 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-var mongoHost = process.env.MONGOLAB_URI
+mongoose.connect('username:password@host:port/database?options...',);
+const mongoHost = process.env.MONGO_URI
+const mongoUser = process.env.MONGO_USR
+const mongoPassword = process.env.MONGO_PW
+const MONGO_CONNECTION_STRING = `mongodb+srv://${mongoUser}:${mongoPassword}@${mongoHost}`
 // mongoose.connect('mongodb://localhost/polls');
-mongoose.connect(mongoHost, (err) => {
-  if (err) { throw err; }
-  console.log("DB connection OK");
+mongoose.connect(mongoHost,  {useNewUrlParser: true})
+console.log("DB connection OK");
+mongoose.connection.on( 'error', err => {
+   throw err; 
 });
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
