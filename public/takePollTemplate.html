@@ -4,7 +4,7 @@
   </div>
 
   <div ng-repeat="contestant in poll[0].contestants | orderBy : '-votes.length'">
-    <button class="btn" ng-click="upvote(contestant._id)">
+    <button class="contestant-btn btn" ng-click="upvote(contestant._id)">
       <h4 class="contestant-btn">{{contestant.name}}</h4>
     </button>
     <h3 class="votes-display">{{contestant.votes.length/2}} - {{ contestant.votes }}</h3></div>
