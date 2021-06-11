@@ -1,3 +1,4 @@
+const dotenv = require('dotenv').config()
 var mongoose = require('mongoose');
 require('./models/Polls');
 require('./models/Users');
@@ -15,16 +16,14 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-mongoose.connect('username:password@host:port/database?options...',);
-const mongoHost = process.env.MONGO_URI
-const mongoUser = process.env.MONGO_USR
-const mongoPassword = process.env.MONGO_PW
+const mongoHost = process.env.MONGO_URI;
+const mongoUser = process.env.MONGO_USR;
+const mongoPassword = process.env.MONGO_PW;
 const MONGO_CONNECTION_STRING = `mongodb+srv://${mongoUser}:${mongoPassword}@${mongoHost}`
+let db;
 // mongoose.connect('mongodb://localhost/polls');
-mongoose.connect(MONGO_CONNECTION_STRING,  {useNewUrlParser: true})
-console.log("DB connection OK");
-mongoose.connection.on( 'error', err => {
-   throw err; 
+mongoose.connect(MONGO_CONNECTION_STRING,  {useNewUrlParser: true}, (err) => {
+  if (err) { console.log(err); } else{ console.log("DB connection OK") };
 });
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
